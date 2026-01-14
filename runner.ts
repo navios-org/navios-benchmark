@@ -84,6 +84,14 @@ const APPS: AppConfig[] = [
     runtime: 'bun',
   },
   {
+    name: 'navios',
+    adapter: 'bun-compiled',
+    port: 3006,
+    startCommand: 'yarn start:compiled',
+    cwd: './apps/navios-bun-legacy',
+    runtime: 'bun',
+  },
+  {
     name: 'native',
     adapter: 'bun',
     port: 3005,

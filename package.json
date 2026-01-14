@@ -15,6 +15,7 @@
     "build:all": "yarn workspaces foreach -A run build",
     "start:navios-fastify": "yarn workspace @navios-benchmark/navios-fastify start",
     "start:navios-bun": "yarn workspace @navios-benchmark/navios-bun start",
+    "start:navios-bun-legacy": "yarn workspace @navios-benchmark/navios-bun-legacy start:compiled",
     "start:nestjs-express": "yarn workspace @navios-benchmark/nestjs-express start",
     "start:nestjs-fastify": "yarn workspace @navios-benchmark/nestjs-fastify start",
     "start:native-bun": "yarn workspace @navios-benchmark/native-bun start"
