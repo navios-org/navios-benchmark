@@ -1,5 +1,5 @@
 {
-  "name": "@navios-bench/native-bun",
+  "name": "@navios-benchmark/native-bun",
   "version": "1.0.0",
   "private": true,
   "type": "module",

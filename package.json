@@ -1,8 +1,9 @@
 {
-  "name": "@navios/benchmarks",
+  "name": "@navios-benchmark/root",
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "packageManager": "yarn@4.12.0",
   "scripts": {
     "bench": "tsx runner.ts",
     "bench:cold-start": "tsx runner.ts --scenario=cold-start",
@@ -11,14 +12,16 @@
     "bench:heavy": "tsx runner.ts --scenario=heavy-load",
     "bench:sustained": "tsx runner.ts --scenario=sustained-load",
     "bench:all": "tsx runner.ts --all",
-    "build:all": "npm run build --workspaces",
-    "start:navios-fastify": "npm start -w apps/navios-fastify",
-    "start:navios-bun": "npm start -w apps/navios-bun",
-    "start:nestjs-express": "npm start -w apps/nestjs-express",
-    "start:nestjs-fastify": "npm start -w apps/nestjs-fastify"
+    "build:all": "yarn workspaces foreach -A run build",
+    "start:navios-fastify": "yarn workspace @navios-benchmark/navios-fastify start",
+    "start:navios-bun": "yarn workspace @navios-benchmark/navios-bun start",
+    "start:nestjs-express": "yarn workspace @navios-benchmark/nestjs-express start",
+    "start:nestjs-fastify": "yarn workspace @navios-benchmark/nestjs-fastify start",
+    "start:native-bun": "yarn workspace @navios-benchmark/native-bun start"
   },
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "shared"
   ],
   "devDependencies": {
     "@types/autocannon": "^7.12.7",

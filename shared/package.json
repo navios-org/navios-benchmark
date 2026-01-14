@@ -1,5 +1,5 @@
 {
-  "name": "@navios-bench/shared",
+  "name": "@navios-benchmark/shared",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -9,6 +9,6 @@
     "./data": "./data.ts"
   },
   "dependencies": {
-    "zod": "^3.24.0"
+    "zod": "^4.3.5"
   }
 }

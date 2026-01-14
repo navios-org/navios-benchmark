@@ -1,5 +1,5 @@
 {
-  "name": "@navios-bench/nestjs-fastify",
+  "name": "@navios-benchmark/nestjs-fastify",
   "version": "1.0.0",
   "private": true,
   "type": "module",

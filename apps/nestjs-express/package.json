@@ -1,5 +1,5 @@
 {
-  "name": "@navios-bench/nestjs-express",
+  "name": "@navios-benchmark/nestjs-express",
   "version": "1.0.0",
   "private": true,
   "type": "module",
