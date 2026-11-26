@@ -1,14 +1,23 @@
 {
   "name": "@navios-benchmark/shared",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./index.ts",
-    "./schemas": "./schemas.ts",
-    "./data": "./data.ts"
+    "./data": {
+      "types": "./dist/data.d.mts",
+      "default": "./dist/data.mjs"
+    },
+    "./host": {
+      "types": "./dist/host.d.mts",
+      "default": "./dist/host.mjs"
+    },
+    "./schemas": {
+      "types": "./dist/schemas.d.mts",
+      "default": "./dist/schemas.mjs"
+    }
   },
   "dependencies": {
-    "zod": "^4.3.5"
+    "zod": "4.6.7"
   }
 }

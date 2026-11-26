@@ -1,0 +1,20 @@
+{
+  "name": "@navios-benchmark/navios-v1",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@navios-benchmark/shared": "workspace:*",
+    "@navios/adapter-bun": "1.1.0",
+    "@navios/adapter-fastify": "1.0.0",
+    "@navios/builder": "1.0.0",
+    "@navios/core": "1.1.0",
+    "@navios/di": "1.0.0",
+    "fastify": "5.12.8",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.5",
+    "@types/node": "26.6.6"
+  }
+}
