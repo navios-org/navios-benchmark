@@ -1,0 +1,18 @@
+{
+  "name": "@navios-benchmark/elysia",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@navios-benchmark/shared": "workspace:*",
+    "@sinclair/typebox": "0.34.48",
+    "elysia": "1.4.32",
+    "file-type": "22.3.0",
+    "openapi-types": "12.1.3",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.5",
+    "@types/node": "26.6.6"
+  }
+}

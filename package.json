@@ -1,37 +1,44 @@
 {
   "name": "@navios-benchmark/root",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@4.12.0",
+  "packageManager": "yarn@4.19.0",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
-    "bench": "tsx runner.ts",
-    "bench:cold-start": "tsx runner.ts --scenario=cold-start",
-    "bench:light": "tsx runner.ts --scenario=light-load",
-    "bench:moderate": "tsx runner.ts --scenario=moderate-load",
-    "bench:heavy": "tsx runner.ts --scenario=heavy-load",
-    "bench:sustained": "tsx runner.ts --scenario=sustained-load",
-    "bench:all": "tsx runner.ts --all",
-    "build:all": "yarn workspaces foreach -A run build",
-    "start:navios-fastify": "yarn workspace @navios-benchmark/navios-fastify start",
-    "start:navios-bun": "yarn workspace @navios-benchmark/navios-bun start",
-    "start:navios-bun-legacy": "yarn workspace @navios-benchmark/navios-bun-legacy start:compiled",
-    "start:nestjs-express": "yarn workspace @navios-benchmark/nestjs-express start",
-    "start:nestjs-fastify": "yarn workspace @navios-benchmark/nestjs-fastify start",
-    "start:native-bun": "yarn workspace @navios-benchmark/native-bun start"
+    "build": "yarn build:loadgen && yarn build:apps",
+    "build:apps": "tsc -b",
+    "build:loadgen": "cd loadgen && go build -o bin/loadgen .",
+    "build:packages": "node bench/cli.mts package",
+    "bench": "node bench/cli.mts run",
+    "bench:quick": "node bench/cli.mts run --preset quick",
+    "bench:full": "node bench/cli.mts run --preset full",
+    "calibrate": "node bench/cli.mts calibrate",
+    "conformance": "node bench/cli.mts conformance",
+    "report": "node bench/cli.mts report",
+    "list": "node bench/cli.mts list",
+    "test": "yarn test:loadgen && yarn test:bench",
+    "test:loadgen": "cd loadgen && go vet ./... && go test ./...",
+    "test:bench": "node --test 'bench/**/*.spec.mts'",
+    "check": "tsc -b && tsc -p bench",
+    "lint": "oxlint apps shared bench",
+    "format": "oxfmt apps shared bench"
   },
   "workspaces": [
     "apps/*",
     "shared"
   ],
   "devDependencies": {
-    "@types/autocannon": "^7.12.7",
-    "@types/node": "^25.0.3",
-    "autocannon": "^8.0.0",
-    "chalk": "^5.6.2",
-    "cli-table3": "^0.6.5",
-    "ora": "^8.1.1",
-    "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "@types/node": "26.6.6",
+    "autocannon": "8.0.0",
+    "oxfmt": "0.79.0",
+    "oxlint": "1.94.0",
+    "rolldown": "1.3.3",
+    "typescript": "7.0.2"
+  },
+  "resolutions": {
+    "zod": "4.6.7"
   }
 }

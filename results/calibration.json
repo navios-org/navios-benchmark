@@ -1,0 +1,223 @@
+{
+  "at": "2026-11-25T23:15:03.800Z",
+  "environment": {
+    "cpu": "Apple M4 Max",
+    "cores": 16,
+    "memoryGiB": 48,
+    "os": "Darwin 27.2.0 arm64",
+    "node": "v24.22.1",
+    "bun": "1.4.5",
+    "power": "AC Power",
+    "versions": {
+      "fastify": "5.12.8",
+      "fastify-json": "5.12.8",
+      "express": "5.3.0",
+      "hono-node": "4.13.21",
+      "navios-fastify": "2.0.0-alpha.0",
+      "navios1-fastify": "1.1.0",
+      "nest-node": "12.6.0",
+      "nest-fastify": "12.6.0",
+      "nest-express": "12.6.0",
+      "nest-node-class": "12.6.0",
+      "elysia": "1.4.32",
+      "hono-bun": "4.13.21",
+      "navios-bun": "2.0.0-alpha.0",
+      "navios1-bun": "1.1.0",
+      "nest-node-bun": "12.6.0",
+      "nest-fastify-bun": "12.6.0"
+    },
+    "zod": "4.6.7"
+  },
+  "sink": [
+    {
+      "threads": 1,
+      "rps": 343089.66010652995,
+      "busyShare": 0.9777357996399029
+    },
+    {
+      "threads": 2,
+      "rps": 366530.7002999629,
+      "busyShare": 0.6581027863463967
+    },
+    {
+      "threads": 3,
+      "rps": 321109.8634106114,
+      "busyShare": 0.45572035902944114
+    },
+    {
+      "threads": 4,
+      "rps": 298525.7906430884,
+      "busyShare": 0.3405951056408512
+    }
+  ],
+  "tools": [
+    {
+      "tool": "loadgen, 1 thread",
+      "server": "bun-serve",
+      "rps": 267775.25953218684,
+      "mainShare": 0.9948460000000001
+    },
+    {
+      "tool": "loadgen, 2 threads (used here)",
+      "server": "bun-serve",
+      "rps": 259323.96039144357,
+      "mainShare": 0.9962153333333332
+    },
+    {
+      "tool": "loadgen, 3 threads",
+      "server": "bun-serve",
+      "rps": 238742.30182849074,
+      "mainShare": 0.9949833333333333
+    },
+    {
+      "tool": "loadgen, 2 sleeping threads",
+      "server": "bun-serve",
+      "rps": 245523.23275306108,
+      "mainShare": 0.995982
+    },
+    {
+      "tool": "bombardier (used for 1.x)",
+      "server": "bun-serve",
+      "rps": 166303.46165878215,
+      "mainShare": 0.9944913333333335
+    },
+    {
+      "tool": "autocannon (used for 1.x)",
+      "server": "bun-serve",
+      "rps": 159424,
+      "mainShare": 0.8471356666666666
+    },
+    {
+      "tool": "autocannon, 4 workers",
+      "server": "bun-serve",
+      "rps": 211093.34,
+      "mainShare": 0.9945010000000001
+    },
+    {
+      "tool": "loadgen, 1 thread",
+      "server": "navios-bun",
+      "rps": 222315.90296579135,
+      "mainShare": 0.9947176666666667
+    },
+    {
+      "tool": "loadgen, 2 threads (used here)",
+      "server": "navios-bun",
+      "rps": 222553.86824378942,
+      "mainShare": 0.9958423333333333
+    },
+    {
+      "tool": "loadgen, 3 threads",
+      "server": "navios-bun",
+      "rps": 207851.84719763132,
+      "mainShare": 0.9950583333333335
+    },
+    {
+      "tool": "loadgen, 2 sleeping threads",
+      "server": "navios-bun",
+      "rps": 208695.41749958575,
+      "mainShare": 0.9965473333333333
+    },
+    {
+      "tool": "bombardier (used for 1.x)",
+      "server": "navios-bun",
+      "rps": 159863.54146678944,
+      "mainShare": 0.9944466666666666
+    },
+    {
+      "tool": "autocannon (used for 1.x)",
+      "server": "navios-bun",
+      "rps": 160746.67,
+      "mainShare": 0.9085000000000001
+    },
+    {
+      "tool": "autocannon, 4 workers",
+      "server": "navios-bun",
+      "rps": 195648,
+      "mainShare": 0.9948136666666666
+    },
+    {
+      "tool": "loadgen, 1 thread",
+      "server": "node-http",
+      "rps": 125444.65714177728,
+      "mainShare": 0.9995123333333333
+    },
+    {
+      "tool": "loadgen, 2 threads (used here)",
+      "server": "node-http",
+      "rps": 124550.07856971209,
+      "mainShare": 0.9999333333333335
+    },
+    {
+      "tool": "loadgen, 3 threads",
+      "server": "node-http",
+      "rps": 118758.33693563256,
+      "mainShare": 0.9998643333333332
+    },
+    {
+      "tool": "loadgen, 2 sleeping threads",
+      "server": "node-http",
+      "rps": 116243.01755715912,
+      "mainShare": 1
+    },
+    {
+      "tool": "bombardier (used for 1.x)",
+      "server": "node-http",
+      "rps": 123629.54559860153,
+      "mainShare": 0.9982296666666667
+    },
+    {
+      "tool": "autocannon (used for 1.x)",
+      "server": "node-http",
+      "rps": 123466.67,
+      "mainShare": 0.9967429999999999
+    },
+    {
+      "tool": "autocannon, 4 workers",
+      "server": "node-http",
+      "rps": 115594.67,
+      "mainShare": 0.9984113333333332
+    },
+    {
+      "tool": "loadgen, 1 thread",
+      "server": "navios-fastify",
+      "rps": 115726.64985627666,
+      "mainShare": 1
+    },
+    {
+      "tool": "loadgen, 2 threads (used here)",
+      "server": "navios-fastify",
+      "rps": 115272.77557546846,
+      "mainShare": 1
+    },
+    {
+      "tool": "loadgen, 3 threads",
+      "server": "navios-fastify",
+      "rps": 112248.8394800576,
+      "mainShare": 1
+    },
+    {
+      "tool": "loadgen, 2 sleeping threads",
+      "server": "navios-fastify",
+      "rps": 106205.88029515225,
+      "mainShare": 1
+    },
+    {
+      "tool": "bombardier (used for 1.x)",
+      "server": "navios-fastify",
+      "rps": 119333.00210877782,
+      "mainShare": 0.9988509999999999
+    },
+    {
+      "tool": "autocannon (used for 1.x)",
+      "server": "navios-fastify",
+      "rps": 117920,
+      "mainShare": 0.9979043333333332
+    },
+    {
+      "tool": "autocannon, 4 workers",
+      "server": "navios-fastify",
+      "rps": 112138.67,
+      "mainShare": 0.998869
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@navios-benchmark/node-http",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@navios-benchmark/shared": "workspace:*",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6"
+  }
+}

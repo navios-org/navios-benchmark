@@ -1,0 +1,15 @@
+{
+  "files": [],
+  "references": [
+    { "path": "shared" },
+    { "path": "apps/node-http" },
+    { "path": "apps/fastify" },
+    { "path": "apps/express" },
+    { "path": "apps/hono" },
+    { "path": "apps/elysia" },
+    { "path": "apps/bun-serve" },
+    { "path": "apps/navios" },
+    { "path": "apps/navios-v1" },
+    { "path": "apps/nest" }
+  ]
+}

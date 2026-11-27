@@ -1,31 +1,23 @@
-# Dependencies
 node_modules/
-
-# Build outputs
 dist/
-bundle/
+*.tsbuildinfo
 
-# Yarn
+# yarn
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
-!.yarn/sdks
-!.yarn/versions
 .pnp.*
 
-# IDE
+# made by the benchmark
+loadgen/bin/
+packages/
+results/*
+!results/calibration.json
+!results/published-*.json
+!results/report.html
+
 .idea/
 .vscode/
-*.swp
-*.swo
-
-# OS
 .DS_Store
-Thumbs.db
-
-# Logs
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
