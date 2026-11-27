@@ -4,17 +4,18 @@ How Navios 2 compares with Navios 1, NestJS on each of its three adapters, and t
 
 ## What the latest run shows
 
-Measured on 2026-11-26 on an Apple M4 Max, Node.js 24.22, Bun 1.4.5: `@navios/server` 2.0.0-alpha.0, `@navios/core` 1.1.0, NestJS 12.6.0. 5 rounds, every server validating requests and responses with the same Zod schemas unless a line says otherwise.
+Measured on 2026-11-26 on an Apple M4 Max, Node.js 24.22, Bun 1.4.5: `@navios/server` 2.0.0-alpha.1, `@navios/core` 1.1.0, NestJS 12.6.0. Navios 2 was measured again on 2026-11-27, when 2.0.0-alpha.1 was published; plain Fastify and `Bun.serve`, measured beside it, came out within 2 % of the day before. 5 rounds, every server validating requests and responses with the same Zod schemas unless a line says otherwise.
 
-- **Navios 2 against Nest 12.** On Node.js, Navios 2 on Fastify serves 35 to 45 % more requests per second than Nest on its new Node adapter in most scenarios, 22 % more on a page of records and 120 % more with request-scoped services, which make a Nest controller request-scoped. On the 31 KB catalog, where serialising dominates, the two are within the noise (+6 %). Against Nest on Fastify the gap is 39 to 51 % on most routes, 32 % on the page of records and 14 % on the 31 KB catalog.
-- **What the framework costs.** Plain Fastify with the same Zod schemas keeps 92 % of the throughput of `node:http` with hand-written routing; Navios 2 on Fastify keeps 87 %, Nest on its Node adapter 63 %. For `GET /users/:id` that is 8.9, 9.3 and 12.9 µs of CPU per request.
+- **Navios 2 against Nest 12.** On Node.js, Navios 2 on Fastify serves 34 to 45 % more requests per second than Nest on its new Node adapter in most scenarios, 23 % more on a page of records and 139 % more with request-scoped services, which make a Nest controller request-scoped. On the 31 KB catalog, where serialising dominates, it is 5 % ahead. Against Nest on Fastify the gap is 38 to 51 % on most routes, 32 % on the page of records and 13 % on the 31 KB catalog.
+- **What the framework costs.** Plain Fastify with the same Zod schemas keeps 92 % of the throughput of `node:http` with hand-written routing; Navios 2 on Fastify keeps 88 %, Nest on its Node adapter 63 %. For `GET /users/:id` that is 8.9, 9.1 and 12.9 µs of CPU per request.
 - **Bun.** Navios 2 on Bun serves 1.5 to 2 times what it serves on Node.js, and keeps 80 % of `Bun.serve`, as Hono does (79 %); Elysia keeps 88 %. At a moderate fixed rate the tail is longer on Bun, for `Bun.serve` as for every framework on it: at 40k requests per second, p99 is 0.13 ms for Navios on Bun and 0.05 ms on Node.js.
-- **2.0 against 1.x.** On Fastify 2.0 is 15 to 40 % faster; on Bun 5 to 16 %. Where 1.x builds a request-scoped controller (a guard that hands over the user, request-scoped services), 2.0 is 2.7 to 3.6 times as fast. One thing is slower: on Bun, 2.0 handles requests with a JSON body 6 to 7 % more slowly than 1.x. It reads them as bytes, decodes them and checks them for `__proto__` keys, which 1.x did not do; reading them with `request.text()` instead would recover about half of that (0.25 µs of the 0.5 µs per request, measured separately).
-- **Validating responses.** On Node.js it costs Navios 1 to 4 % on most routes, 9 % on a page of 20 records and 20 % on the 31 KB catalog; on Bun, where everything else is cheaper, 15 % and 70 % on those two. Nest's `StandardSchemaSerializerInterceptor` costs 7 to 26 % on every route, about 20 % on most.
+- **2.0 against 1.x.** On Fastify 2.0 is 14 to 41 % faster on most routes; on Bun 8 to 15 % on routes without a body. Where 1.x builds a request-scoped controller (a guard that hands over the user, request-scoped services), 2.0 is 3 to 3.6 times as fast. One thing is slower: on Bun, the median of 2.0 for requests with a JSON body is 4 to 7 % below that of 1.x, though the ranges of the rounds overlap. It reads them as bytes, decodes them and checks them for `__proto__` keys, which 1.x did not do; reading them with `request.text()` instead would recover about half of that (0.25 µs of the 0.5 µs per request, measured separately).
+- **Validating responses.** On Node.js it costs Navios 1 to 4 % on most routes, 10 % on a page of 20 records and 20 % on the 31 KB catalog; on Bun, where everything else is cheaper, 15 % and 69 % on those two. Nest's `StandardSchemaSerializerInterceptor` costs 7 to 26 % on every route, about 20 % on most.
 - **Nest's adapters.** Nest's own numbers hold here: its Node adapter is 25 to 56 % faster than its Express adapter and 3 to 8 % faster than its Fastify adapter. The same Nest application is 26 to 53 % faster when Bun runs it.
 - **class-validator.** With DTO classes instead of Zod, Nest validates a nested 1 KB body 2.6 times as slowly (14.3k against 36.9k requests per second, responses not validated in either), and serves 27 % fewer requests with a small one.
 - **Latency.** Below capacity every server answers in well under a millisecond; at 40k requests per second the 99th percentile is 0.05 ms for Navios 2 on Fastify, 0.07 ms for Nest on Node and 0.84 ms for Nest on Express. Differences show only near a server's capacity.
-- **Startup and memory.** Navios 2 starts in 35 ms on Bun and 132 ms on Node.js (100 ms bundled), Nest in 176 to 191 ms. Idle, Navios 2 takes 50 MiB on Bun and 99 MiB on Node.js, Nest 110 to 112 MiB. Under the same load, 1.x on Fastify grew to 225 MiB, 2.0 to 126 MiB.
+- **Startup and memory.** Navios 2 starts in 35 ms on Bun and 135 ms on Node.js (101 ms bundled), Nest in 176 to 191 ms. Idle, Navios 2 takes 51 MiB on Bun and 99 MiB on Node.js, Nest 110 to 112 MiB. Under the same load, 1.x on Fastify grew to 225 MiB, 2.0 to 127 MiB.
+- **2.0.0-alpha.1 against alpha.0.** Request-scoped services (`scoped`) are 8 to 10 % faster on both adapters. Every other scenario is where it was, within the 2 % by which the unchanged servers differ between the two days.
 - **The old measurements.** The tools of the 1.x runner reported servers on Bun 28 to 38 % slower than they are. On Node.js they were right within a few percent. See [The load driver](#the-load-driver).
 
 ## What is compared
@@ -27,7 +28,7 @@ Every server implements the same API from one set of Zod schemas ([shared/src/sc
 | `fastify`, `express`, `hono-node` | Node.js | The libraries, validating with the same Zod schemas |
 | `fastify-json` | Node.js | Fastify with its own JSON Schema validation and serialisation, generated from the Zod schemas |
 | `elysia`, `hono-bun` | Bun | The libraries of Bun |
-| `navios-fastify`, `navios-bun` | Node.js, Bun | Navios 2 (`@navios/server@2.0.0-alpha.0`), one application, two adapters |
+| `navios-fastify`, `navios-bun` | Node.js, Bun | Navios 2 (`@navios/server@2.0.0-alpha.1`), one application, two adapters |
 | `navios1-fastify`, `navios1-bun` | Node.js, Bun | Navios 1.1, the same application in the 1.x API |
 | `nest-node`, `nest-fastify`, `nest-express` | Node.js | NestJS 12 on its Node adapter (`@nestjs/platform-node`, new in 12.3), on Fastify, and on Express |
 | `nest-node-class` | Node.js | NestJS on the Node adapter with class-validator DTOs instead of Zod |
@@ -166,4 +167,4 @@ Close what you can while it runs: the runner waits for a quiet machine, but cann
 | [shared/](shared/) | Schemas, services and the control channel every server uses |
 | [loadgen/](loadgen/) | The load driver |
 | [bench/](bench/) | Runner, conformance check, calibration, packaging and report |
-| [results/](results/) | Runs; the one RESULTS.md is made from is kept |
+| [results/](results/) | Runs; the one RESULTS.md is made from is kept, with the runs that were merged into it |

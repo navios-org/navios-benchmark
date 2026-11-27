@@ -343,10 +343,11 @@ __metadata:
   resolution: "@navios-benchmark/navios@workspace:apps/navios"
   dependencies:
     "@navios-benchmark/shared": "workspace:*"
-    "@navios/adapter-bun": "npm:2.0.0-alpha.0"
-    "@navios/adapter-fastify": "npm:2.0.0-alpha.0"
-    "@navios/builder": "npm:2.0.0-alpha.0"
-    "@navios/server": "npm:2.0.0-alpha.0"
+    "@navios/adapter-bun": "npm:2.0.0-alpha.1"
+    "@navios/adapter-fastify": "npm:2.0.0-alpha.1"
+    "@navios/builder": "npm:2.0.0-alpha.1"
+    "@navios/core": "npm:2.0.0-alpha.1"
+    "@navios/server": "npm:2.0.0-alpha.1"
     "@types/bun": "npm:1.4.5"
     "@types/node": "npm:26.6.6"
     fastify: "npm:5.12.8"
@@ -414,16 +415,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navios/adapter-bun@npm:2.0.0-alpha.0":
-  version: 2.0.0-alpha.0
-  resolution: "@navios/adapter-bun@npm:2.0.0-alpha.0"
+"@navios/adapter-bun@npm:2.0.0-alpha.1":
+  version: 2.0.0-alpha.1
+  resolution: "@navios/adapter-bun@npm:2.0.0-alpha.1"
   peerDependencies:
-    "@navios/server": 2.0.0-alpha.0
+    "@navios/server": 2.0.0-alpha.1
     "@types/bun": ^1.4.5
   peerDependenciesMeta:
     "@types/bun":
       optional: true
-  checksum: 10c0/0dc61e4e17a468262ddd7d81324b9f1c78cb7db9300b323cde7cf33cf12fa88e6f42459d1ad25734848bb1d84085be36c7469a083fbac92389b06ea942543308
+  checksum: 10c0/5abcfb90de61e251270974e9d58bd8b4e5d991ef8c3838f137582ec718984241ecaea142523d80331a11698a5f790209837cc571874325b4905334946ca18a49
   languageName: node
   linkType: hard
 
@@ -446,16 +447,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navios/adapter-fastify@npm:2.0.0-alpha.0":
-  version: 2.0.0-alpha.0
-  resolution: "@navios/adapter-fastify@npm:2.0.0-alpha.0"
+"@navios/adapter-fastify@npm:2.0.0-alpha.1":
+  version: 2.0.0-alpha.1
+  resolution: "@navios/adapter-fastify@npm:2.0.0-alpha.1"
   dependencies:
     "@fastify/cors": "npm:^11.4.3"
     "@fastify/multipart": "npm:^10.1.9"
   peerDependencies:
-    "@navios/server": 2.0.0-alpha.0
+    "@navios/server": 2.0.0-alpha.1
     fastify: ^5.6.0
-  checksum: 10c0/96a5e41221ac326bcfb47ceece8c802e616b72cb5ee73a826fa0ecc8e0c0e48d67885432f02f8ea9b120ccca137dfaa21c984aedab96cc406f6954e30e07df11
+  checksum: 10c0/b8a9fd3a92ce224f639199f4f2cf01b5e97cf7d0b5298294822a4cd00c3c389e0bb9e7a78957058aebf20d5df316937a2fd52e3615ca448a5bad2858faf7dbdd
   languageName: node
   linkType: hard
 
@@ -468,10 +469,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navios/builder@npm:2.0.0-alpha.0":
-  version: 2.0.0-alpha.0
-  resolution: "@navios/builder@npm:2.0.0-alpha.0"
-  checksum: 10c0/c9f12ce867f600caad549bcd6d6a582eba411780c542325f73be2e1f188c8f5739905a2278a70a3e3b273d7d776323f9265b162e57457dde721bd3f4a81e0a24
+"@navios/builder@npm:2.0.0-alpha.1":
+  version: 2.0.0-alpha.1
+  resolution: "@navios/builder@npm:2.0.0-alpha.1"
+  checksum: 10c0/de615298bdd7a67745481345ce8c093ba49806962da33d55673eee1810aff67b6e370d54d2c07ff08f32cc6eedc8e0613c21e8cd9837bbaf70eb0a0ea0142e9f
   languageName: node
   linkType: hard
 
@@ -487,12 +488,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navios/core@npm:2.0.0-alpha.0":
-  version: 2.0.0-alpha.0
-  resolution: "@navios/core@npm:2.0.0-alpha.0"
+"@navios/core@npm:2.0.0-alpha.1":
+  version: 2.0.0-alpha.1
+  resolution: "@navios/core@npm:2.0.0-alpha.1"
   dependencies:
-    "@navios/di": "npm:2.0.0-alpha.0"
-  checksum: 10c0/430fc48bec4cad4df5c4f041f0f3b4e8a74648add5cda2812128d417b02f42cc55d2e93686771bc8a6942d22b2b648ccc40021ad7d8eb797b55fefe0c28a6444
+    "@navios/di": "npm:2.0.0-alpha.1"
+  checksum: 10c0/a0a50f2168560bf13d49233491c33b08976b089231fc8c481dfd1632abf6facbcb7a42827c34d33e31ff216c1a851394a2671b913a04d516e4b31f9d0f339fde
   languageName: node
   linkType: hard
 
@@ -505,22 +506,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navios/di@npm:2.0.0-alpha.0":
-  version: 2.0.0-alpha.0
-  resolution: "@navios/di@npm:2.0.0-alpha.0"
-  checksum: 10c0/d2c119f82c58614b620993ec301bb049f6149e01c1cbb0fef8d2a29fb39e1098a13aa23e44e6704af4bb634396267525c4e9ff1a09a1e75a7ffdc04e7d5f0c37
+"@navios/di@npm:2.0.0-alpha.1":
+  version: 2.0.0-alpha.1
+  resolution: "@navios/di@npm:2.0.0-alpha.1"
+  checksum: 10c0/a837050c6d3a5f6b8ceaa70d0d249c923c62e6dd0327cde263467428f53004970e3a7269a400cbd650ef5ad003894a3d95eb7751661f05922434058d2d9fca2c
   languageName: node
   linkType: hard
 
-"@navios/server@npm:2.0.0-alpha.0":
-  version: 2.0.0-alpha.0
-  resolution: "@navios/server@npm:2.0.0-alpha.0"
-  dependencies:
-    "@navios/core": "npm:2.0.0-alpha.0"
-    "@navios/di": "npm:2.0.0-alpha.0"
+"@navios/server@npm:2.0.0-alpha.1":
+  version: 2.0.0-alpha.1
+  resolution: "@navios/server@npm:2.0.0-alpha.1"
   peerDependencies:
-    "@navios/builder": 2.0.0-alpha.0
-  checksum: 10c0/3b48b7bfec07659acbf5e22a05a693fa10f683f4b56a023e960d097ee2dc5331c403ae47fd5f28cf196f6a1b027baab93e536fec6952db5d685756e03ecbadc7
+    "@navios/builder": 2.0.0-alpha.1
+    "@navios/core": 2.0.0-alpha.1
+  checksum: 10c0/584789a1112526d7fca5071ac4cc1a77fdabd7c2709a493bfc68965a6db5faf6edda211f1eaefad7a649af7493c838a156d09a5ec5e1670d65a9ca95fc39409f
   languageName: node
   linkType: hard
 
