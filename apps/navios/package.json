@@ -5,10 +5,11 @@
   "type": "module",
   "dependencies": {
     "@navios-benchmark/shared": "workspace:*",
-    "@navios/adapter-bun": "2.0.0-alpha.0",
-    "@navios/adapter-fastify": "2.0.0-alpha.0",
-    "@navios/builder": "2.0.0-alpha.0",
-    "@navios/server": "2.0.0-alpha.0",
+    "@navios/adapter-bun": "2.0.0-alpha.1",
+    "@navios/adapter-fastify": "2.0.0-alpha.1",
+    "@navios/builder": "2.0.0-alpha.1",
+    "@navios/core": "2.0.0-alpha.1",
+    "@navios/server": "2.0.0-alpha.1",
     "fastify": "5.12.8",
     "zod": "4.6.7"
   },

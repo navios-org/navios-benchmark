@@ -54,7 +54,7 @@ Commands
   package       build the bundles and executables for the startup suite
   run           measure; writes results/<time>.json
   report        [file] write the report of a run; the latest by default
-  merge         <into> <from> [--round n] put the sessions of a run measured again into another
+  merge         <into> <from> [--round n] [--contenders a,b] put the sessions of a run measured again into another
 
 Options of run
   --preset quick|standard|full
@@ -225,7 +225,12 @@ switch (values.help ? 'help' : positionals[0]) {
     if (!positionals[1] || !positionals[2]) {
       throw new Error('merge needs the run to change and the run to take from')
     }
-    mergeFiles(positionals[1], positionals[2], values.round ? number(values.round, 1) : undefined)
+    mergeFiles(
+      positionals[1],
+      positionals[2],
+      values.round ? number(values.round, 1) : undefined,
+      list(values.contenders),
+    )
     break
   case 'report':
     report(positionals[1] ?? latest(), join(RESULTS, 'calibration.json'), ROOT)
